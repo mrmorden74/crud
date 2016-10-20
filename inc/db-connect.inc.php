@@ -14,5 +14,6 @@ function connectDB(string $user, string $pw, string $host, string $db) : mysqli 
 		echo 'Fehler beim Verbinden zur Datenbank.: ', $mysqli->connect_errno;
 
 	}
+	$mysqli->set_charset("utf8");
 	return $mysqli;	
 }
