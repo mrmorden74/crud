@@ -43,7 +43,8 @@ while ($line = $result->fetch_assoc()) {
 	echo '<td>',
 		 '<a href="./?action=d&id=', 
 		 $line['id'], 
-		 '" class="icon">',
+		 '" class="icon"',
+		 " onclick=\"return confirm('Wirklich löschen?');\">",
 		 '<img src="img/delete.svg" alt="Löschen">',
 		 '</a></td>'; 
 	

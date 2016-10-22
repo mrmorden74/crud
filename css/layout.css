@@ -32,7 +32,10 @@ main {
 	height: auto;
 }
 
-/* pure Anpassungen */
-.pure-table {
-	width: 100%;
+.error {
+    color: red;
+}
+
+.success {
+    color: darkgreen;
 }

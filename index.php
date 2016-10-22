@@ -4,8 +4,15 @@ $db = connectDB('root', '', 'localhost', 'kurse');
 
 // Seiten unterscheiden durch action
 $action = $_GET['action'] ?? 'r';
+$msg = '';
+
 if ( !in_array($action, ['c', 'r', 'u', 'd']) ) {
 	$action = 'r';
+}
+
+// Löschen abfragen
+if ($action == 'd') {
+    include 'delete-kunden.php';
 }
 ?><!DOCTYPE html>
 <html lang="de">
@@ -23,13 +30,17 @@ if ( !in_array($action, ['c', 'r', 'u', 'd']) ) {
 	<main>
 		<h2>CRUD - Create, Read, Update, Delete</h2>
 		<?php
+		echo $msg;
+
 		// action unterscheidet die darzustellenden Inhalte
 		switch ($action) {
 			case 'c':
 				// Neuen Kunden erstellen
 				include 'create-kunden.php';
 				break;
+			// case r or d
 			case 'r':
+			case 'd':
 				// Default Ansicht, auslesen der Daten
 				include 'read-kunden.php';
 				break;
