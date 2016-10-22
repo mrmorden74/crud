@@ -1,6 +1,21 @@
 <?php
 require_once 'inc/db-connect.inc.php';
+require_once 'inc/utilities.inc.php';
+require_once 'inc/SimpleValidator/SimpleValidatorException.php';
+require_once 'inc/SimpleValidator/Validator.php';
+
+
 $db = connectDB('root', '', 'localhost', 'kurse');
+
+// Initialisierung
+$isSent = false;
+$isAdded = false;
+$isValid = false;
+$hasErrros = false;
+$isUpdated = false;
+$errorMsg = '';
+$formErrors = [];
+
 
 // Seiten unterscheiden durch action
 $action = $_GET['action'] ?? 'r';
