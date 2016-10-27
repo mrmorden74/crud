@@ -7,7 +7,7 @@ if ($isSent) {
 
     $rules = [
         'Kundennummer' => [ 'required', 'kdnr_korr' => function($input) {
-            if (preg_match("`KdNr-`", $input) && 	preg_match("`[0-9]`", $input))
+            if (preg_match("`KdNr-`", $input) && 	preg_match("`[0-9]{6}`", $input)) // [0-5]{5,6}
                return true; 
            return false; 
         }
